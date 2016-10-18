@@ -135,6 +135,17 @@ void printInorder(struct node* node)
      /* now recur on right child */
      printInorder(node->right);
 }
+void Print(struct node *root,int k1,int k2)
+{
+	if(root==NULL)
+	return;
+	if(k1 < root->key)
+	Print(root->left,k1,k2);
+	if(k1<=root->key && k2>=root->key)
+ printf("Price is %d and  model number is %d\n",root->key,root->value);
+if(k2> root->key)
+  Print(root->right,k1,k2);
+}
 
 int main()
 {
@@ -147,9 +158,10 @@ int main()
   root = insert(root,50,5);
   root = insert(root,25,6);
   
-  printf("Inorder Travelsal of given AVL Tree is\n");
-  printInorder(root); 
-  printf("\n"); 
+  scanf("%d %d",&k1,&k2);
+  printf("values in the range k1,k2 are\n");
+  Print(root,k1,k2); int k1,k2;
+  printf("Enter k1 & k2\n");
  
 
 return 0;
